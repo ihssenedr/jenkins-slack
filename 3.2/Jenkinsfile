@@ -12,11 +12,9 @@ pipeline {
                echo "Building release ${RELEASE} with log level ${LOG_LEVEL}..."
                bat 'ls'
                bat 'chmod +x build.sh'
-               withCredentials([string(credentialsId: 'an-api-key', variable: 'API_KEY')]) {
-                  bat '''
-                     build.sh
+               bat '''
+                     echo "Using API key
                   '''
-               }
             }
         }
         stage('Test') {
